@@ -1,8 +1,5 @@
 const Joi = require('joi')
-<<<<<<< HEAD
-=======
 const mongoose = require('mongoose')
->>>>>>> 928050f4263b68721f04ab87139def7bcff63a5e
 
 const schemaCreateContact = Joi.object({
   name: Joi.string().alphanum().min(3).max(30).required(),
@@ -10,13 +7,8 @@ const schemaCreateContact = Joi.object({
     minDomainSegments: 2,
     tlds: { allow: ['com', 'net'] },
   }),
-<<<<<<< HEAD
-  phone: Joi.number().integer().required(),
-  isFavourite: Joi.boolean().required(),
-=======
   phone: Joi.string().min(9).max(15).required(),
   favorite: Joi.boolean().optional(),
->>>>>>> 928050f4263b68721f04ab87139def7bcff63a5e
 })
 
 const schemaUpdateContact = Joi.object({
@@ -27,21 +19,12 @@ const schemaUpdateContact = Joi.object({
       tlds: { allow: ['com', 'net'] },
     })
     .optional(),
-<<<<<<< HEAD
-  phone: Joi.number().integer(),
-  isFavourite: Joi.boolean().optional(),
-}).or('name', 'email', 'phone', 'isFavourite')
-
-const schemaUpdateFavourite = Joi.object({
-  isFavourite: Joi.boolean().required(),
-=======
   phone: Joi.string().min(9).max(15),
   favorite: Joi.boolean().optional(),
 }).or('name', 'email', 'phone', 'favourite')
 
 const schemaUpdateFavorite = Joi.object({
   favorite: Joi.boolean().required(),
->>>>>>> 928050f4263b68721f04ab87139def7bcff63a5e
 })
 
 const validate = async (schema, obj, next) => {
@@ -55,10 +38,7 @@ const validate = async (schema, obj, next) => {
     })
   }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 928050f4263b68721f04ab87139def7bcff63a5e
 module.exports = {
   validationCreateContact: (req, res, next) => {
     return validate(schemaCreateContact, req.body, next)
@@ -67,9 +47,6 @@ module.exports = {
     return validate(schemaUpdateContact, req.body, next)
   },
   validationUpdateStatus: (req, res, next) => {
-<<<<<<< HEAD
-    return validate(schemaUpdateFavourite, req.body, next)
-=======
     return validate(schemaUpdateFavorite, req.body, next)
   },
   validateMongoId: (req, res, next) => {
@@ -77,6 +54,5 @@ module.exports = {
       return next({ status: 400, message: 'Invalid ObjectId' })
     }
     next()
->>>>>>> 928050f4263b68721f04ab87139def7bcff63a5e
   },
 }
