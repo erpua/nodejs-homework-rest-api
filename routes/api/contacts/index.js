@@ -11,7 +11,10 @@ const {
 } = require('./validation')
 
 router.use((req, res, next) => {
+<<<<<<< HEAD
+=======
   console.log(req.url)
+>>>>>>> 58c58bcb754cf78325d5b405c542c3067b163131
   next()
 })
 
@@ -32,4 +35,8 @@ router
 
 router.patch('/:contactId/favorite', guard, validationUpdateStatus, ctrl.update)
 
+<<<<<<< HEAD
 module.exports = router
+=======
+module.exports = router
+>>>>>>> 58c58bcb754cf78325d5b405c542c3067b163131

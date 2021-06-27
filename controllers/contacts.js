@@ -17,6 +17,7 @@ const getAll = async (req, res, next) => {
   }
 }
 
+
 const getById = async (req, res, next) => {
   try {
     const userId = req.user.id
@@ -28,7 +29,9 @@ const getById = async (req, res, next) => {
         data: { contact },
       })
     }
-    return res.json({ status: 'error', code: 404, message: 'Not found' })
+    return res
+      .status(404)
+      .json({ status: 'error', code: 404, message: 'Not found' })
   } catch (e) {
     next(e)
   }
@@ -65,6 +68,7 @@ const remove = async (req, res, next) => {
   }
 }
 
+
 const update = async (req, res, next) => {
   try {
     const userId = req.user.id
@@ -74,13 +78,15 @@ const update = async (req, res, next) => {
       req.body
     )
     if (contact) {
-      return res.json({
+      return res.status(200).json({
         status: 'success',
         code: 200,
         data: { contact },
       })
     }
-    return res.json({ status: 'error', code: 404, message: 'Not found' })
+    return res
+      .status(404)
+      .json({ status: 'error', code: 404, message: 'Not found' })
   } catch (e) {
     next(e)
   }
