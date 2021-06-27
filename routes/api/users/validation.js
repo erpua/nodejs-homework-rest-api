@@ -35,7 +35,10 @@ const validate = async (schema, obj, next) => {
     })
   }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 58c58bcb754cf78325d5b405c542c3067b163131
 module.exports = {
   validationCreateUser: (req, res, next) => {
     return validate(schemaCreateUser, req.body, next)
@@ -47,4 +50,8 @@ module.exports = {
   validateSubscription: (req, res, next) => {
     return validate(schemaUpdateSubscription, req.body, next)
   },
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 58c58bcb754cf78325d5b405c542c3067b163131

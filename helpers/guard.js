@@ -45,5 +45,8 @@ const guard = (req, res, next) => {
     return next()
   })(req, res, next)
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 58c58bcb754cf78325d5b405c542c3067b163131
 module.exports = guard

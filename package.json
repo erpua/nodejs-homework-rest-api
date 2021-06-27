@@ -12,20 +12,38 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+<<<<<<< HEAD
     "cloudinary": "^1.26.1",
+=======
+>>>>>>> 58c58bcb754cf78325d5b405c542c3067b163131
     "cors": "2.8.5",
     "cross-env": "7.0.3",
     "dotenv": "^10.0.0",
     "express": "4.17.1",
     "express-rate-limit": "^5.2.6",
+<<<<<<< HEAD
     "gravatar": "^1.8.1",
     "helmet": "^4.6.0",
     "jimp": "^0.16.1",
+=======
+    "helmet": "^4.6.0",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "lowdb": "^2.1.0",
+    "mongoose": "^5.12.14",
+    "mongoose-paginate-v2": "^1.3.18",
+    "morgan": "1.10.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+>>>>>>> 58c58bcb754cf78325d5b405c542c3067b163131
     "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
     "lowdb": "^2.1.0",
     "mongoose": "^5.12.13",
+<<<<<<< HEAD
     "mongoose-paginate-v2": "^1.3.18",
+=======
+>>>>>>> 58c58bcb754cf78325d5b405c542c3067b163131
     "morgan": "1.10.0",
     "multer": "^1.4.2",
     "passport": "^0.4.1",
@@ -43,20 +61,5 @@
     "eslint-plugin-promise": "^4.2.1",
     "jest": "^27.0.5",
     "nodemon": "2.0.7"
-  },
-  "description": "Выполните форк этого репозитория для выполнения домашних заданий (2-6)\r Форк создаст репозиторий на вашем http://github.com",
-  "main": ".eslintrc.js",
-  "bin": {
-    "template": "server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/erpua/nodejs-homework-template-rest-api.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/erpua/nodejs-homework-template-rest-api/issues"
-  },
-  "homepage": "https://github.com/erpua/nodejs-homework-template-rest-api#readme"
+  }
 }
