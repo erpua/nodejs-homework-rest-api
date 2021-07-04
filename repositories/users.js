@@ -8,6 +8,10 @@ const findByEmail = async (email) => {
   return await User.findOne({ email })
 }
 
+const findByVerifyToken = async (verifyToken) => {
+  return await User.findOne({ verifyToken })
+}
+
 const create = async (body) => {
   const user = new User(body)
   return await user.save()
@@ -16,29 +20,31 @@ const create = async (body) => {
 const updateToken = async (id, token) => {
   return await User.updateOne({ _id: id }, { token })
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 58c58bcb754cf78325d5b405c542c3067b163131
 const updateSubscription = async (id, body) => {
   return await User.findByIdAndUpdate({ _id: id }, { ...body }, { new: true })
 }
 
-<<<<<<< HEAD
+const updateSubscription = async (id, body) => {
+  return await User.findByIdAndUpdate({ _id: id }, { ...body }, { new: true })
+}
+
 const updateAvatar = async (id, avatar, idCloudAvatar = null) => {
   return await User.updateOne({ _id: id }, { avatar, idCloudAvatar })
 }
 
-=======
->>>>>>> 58c58bcb754cf78325d5b405c542c3067b163131
+const updateVerifyToken = async (id, isVerified, verifyToken) => {
+  return await User.updateOne({ _id: id }, { isVerified, verifyToken })
+}
+
 module.exports = {
   findById,
   findByEmail,
-  updateToken,
+  findByVerifyToken,
   create,
+  updateToken,
+  updateVerifyToken,
   updateSubscription,
-<<<<<<< HEAD
   updateAvatar,
-=======
->>>>>>> 58c58bcb754cf78325d5b405c542c3067b163131
+
 }

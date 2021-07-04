@@ -1,11 +1,6 @@
 const Contact = require('../model/contact')
 
 const listContacts = async (userId, query) => {
-<<<<<<< HEAD
-=======
-  
-  
->>>>>>> 58c58bcb754cf78325d5b405c542c3067b163131
   const {
     sortBy,
     sortByDesc,

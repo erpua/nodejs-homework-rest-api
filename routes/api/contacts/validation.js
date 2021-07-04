@@ -39,6 +39,7 @@ const validate = async (schema, obj, next) => {
   }
 }
 
+
 module.exports = {
   validationCreateContact: (req, res, next) => {
     return validate(schemaCreateContact, req.body, next)
@@ -55,8 +56,7 @@ module.exports = {
     }
     next()
   },
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 58c58bcb754cf78325d5b405c542c3067b163131
+
+
+
