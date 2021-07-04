@@ -11,6 +11,9 @@ const {
 } = require('./validation')
 
 router.use((req, res, next) => {
+
+  console.log(req.url)
+
   next()
 })
 
@@ -32,3 +35,7 @@ router
 router.patch('/:contactId/favorite', guard, validationUpdateStatus, ctrl.update)
 
 module.exports = router
+
+
+
+

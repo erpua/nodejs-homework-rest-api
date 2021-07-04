@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
+
 let uriDb = null
 if (process.env.NODE_ENV === 'test') {
   uriDb = process.env.URI_DB_TEST
@@ -32,4 +33,5 @@ process.on('SIGINT', async () => {
     process.exit(1)
   })
 })
+
 module.exports = db

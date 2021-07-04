@@ -1,8 +1,17 @@
 const { Schema, model } = require('mongoose')
+
 const gravatar = require('gravatar')
 const { UserPlans } = require('../helpers/constants')
 const bcrypt = require('bcryptjs')
 const { nanoid } = require('nanoid')
+
+
+const gravatar = require('gravatar')
+
+
+const { UserPlans } = require('../helpers/constants')
+const bcrypt = require('bcryptjs')
+
 
 const SALT_WORK_FACTOR = 8
 
@@ -23,6 +32,7 @@ const userSchema = new Schema(
       default: UserPlans.START,
     },
     token: String,
+
     avatar: {
       type: String,
       default: function () {
@@ -33,6 +43,7 @@ const userSchema = new Schema(
       type: String,
       default: null,
     },
+
     isVerified: {
       type: Boolean,
       default: false,
@@ -42,12 +53,16 @@ const userSchema = new Schema(
       required: true,
       default: nanoid(),
     },
+
   },
   {
     versionKey: false,
     timestamps: true,
   }
 )
+
+
+
 userSchema.pre('save', async function (next) {
   if (this.isModified('password')) {
     const salt = await bcrypt.genSalt(SALT_WORK_FACTOR)

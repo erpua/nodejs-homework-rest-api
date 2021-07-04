@@ -17,6 +17,7 @@ const getAll = async (req, res, next) => {
   }
 }
 
+
 const getById = async (req, res, next) => {
   try {
     const userId = req.user.id
@@ -66,6 +67,7 @@ const remove = async (req, res, next) => {
     next(e)
   }
 }
+
 
 const update = async (req, res, next) => {
   try {

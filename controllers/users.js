@@ -2,12 +2,21 @@ const Users = require('../repositories/users')
 const { HttpCode } = require('../helpers/constants')
 const jwt = require('jsonwebtoken')
 const fs = require('fs/promises')
+<<<<<<< HEAD
 const EmailService = require('../services/email')
 const { CreateSenderNodemailer } = require('../services/email-sender')
+=======
+
+>>>>>>> db49ac2ca6e2153442d8e82a5d4bd28555549de1
 require('dotenv').config()
 
 const UploadService = require('../services/cloud-upload')
 
+<<<<<<< HEAD
+=======
+require('dotenv').config()
+
+>>>>>>> db49ac2ca6e2153442d8e82a5d4bd28555549de1
 const SECRET_KEY = process.env.SECRET_KEY
 
 const register = async (req, res, next) => {
@@ -22,6 +31,7 @@ const register = async (req, res, next) => {
       })
     }
 
+<<<<<<< HEAD
     const { id, email, subscription, avatar, verifyToken } = await Users.create(
       req.body
     )
@@ -34,12 +44,23 @@ const register = async (req, res, next) => {
     } catch (error) {
       console.log(error)
     }
+=======
+
+    const { id, email, subscription, avatar } = await Users.create(req.body)
+
+    const { id, email, subscription } = await Users.create(req.body)
+
+>>>>>>> db49ac2ca6e2153442d8e82a5d4bd28555549de1
 
     return res.status(HttpCode.CREATED).json({
       status: 'success',
       code: HttpCode.CREATED,
       message: 'You registered successfully',
       user: { id, email, subscription, avatar },
+<<<<<<< HEAD
+=======
+      user: { id, email, subscription },
+>>>>>>> db49ac2ca6e2153442d8e82a5d4bd28555549de1
     })
   } catch (e) {
     next(e)
@@ -50,8 +71,12 @@ const login = async (req, res, next) => {
   try {
     const user = await Users.findByEmail(req.body.email)
     const isValidPassword = await user?.isValidPassword(req.body.password)
+<<<<<<< HEAD
     console.log(user.isVerified)
     if (!user || !isValidPassword || !user.isVerified) {
+=======
+    if (!user || !isValidPassword) {
+>>>>>>> db49ac2ca6e2153442d8e82a5d4bd28555549de1
       return res.status(HttpCode.UNAUTHORIZED).json({
         status: 'error',
         code: HttpCode.UNAUTHORIZED,
@@ -63,13 +88,30 @@ const login = async (req, res, next) => {
     const token = jwt.sign(payload, SECRET_KEY, { expiresIn: '2h' })
     await Users.updateToken(id, token)
 
+<<<<<<< HEAD
     const { email, subscription } = user
 
+=======
+
+    const { email, subscription } = user
+
+    const {
+      _doc: { email, subscription },
+    } = user
+
+
+>>>>>>> db49ac2ca6e2153442d8e82a5d4bd28555549de1
     return res.json({
       status: 'success',
       code: HttpCode.OK,
       data: { token, user: { email, subscription } },
       message: 'You have logged in',
+<<<<<<< HEAD
+=======
+      token,
+      message: 'You have logged in',
+      user: { email, subscription },
+>>>>>>> db49ac2ca6e2153442d8e82a5d4bd28555549de1
     })
   } catch (e) {
     next(e)
@@ -153,6 +195,7 @@ const avatars = async (req, res, next) => {
   }
 }
 
+<<<<<<< HEAD
 const verify = async (req, res, next) => {
   try {
     const user = await Users.findByVerifyToken(req.params.token)
@@ -206,6 +249,8 @@ const repeatEmailVerification = async (req, res, next) => {
     next(error)
   }
 }
+=======
+>>>>>>> db49ac2ca6e2153442d8e82a5d4bd28555549de1
 
 module.exports = {
   register,
@@ -213,7 +258,13 @@ module.exports = {
   logout,
   current,
   updateSubscription,
+<<<<<<< HEAD
   avatars,
   repeatEmailVerification,
   verify,
+=======
+
+  avatars,
+
+>>>>>>> db49ac2ca6e2153442d8e82a5d4bd28555549de1
 }
